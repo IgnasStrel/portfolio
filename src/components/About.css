@@ -1,0 +1,23 @@
+.about-container {
+  background-color: #ffffff;
+  padding: 4rem 0;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 2rem;
+}
+
+.about-description {
+  font-size: 1.2rem;
+  color: #666666;
+  margin-bottom: 1.5rem;
+}
