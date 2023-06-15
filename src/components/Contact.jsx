@@ -1,27 +1,45 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Contact.css";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
-  };
+    //1-tikrinti laukus
+    if (name.length < 3) {
+      alert("Name cant be blank!");
+      return;
+    }
+    if (email === "") {
+      alert("Email cant be blank!");
+      return;
+    }
 
+    if (message.length < 5) {
+      alert("Message cant be blank!");
+      return;
+    }
+    //2-siusti i firestore data
+    try {
+      const docRef = await addDoc(collection(db, "clientsReq"), {
+        name: name,
+        email: email,
+        client_message: message,
+        created: new Date(),
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
   return (
     <div className="contact-container">
       <div className="contact-content">
@@ -31,23 +49,23 @@ const Contact = () => {
             type="text"
             name="name"
             placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
           <input
             type="email"
             name="email"
             placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
           <textarea
             name="message"
             placeholder="Your Message"
-            value={formData.message}
-            onChange={handleChange}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             required
           ></textarea>
           <button type="submit" className="contact-button">

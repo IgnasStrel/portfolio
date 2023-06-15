@@ -1,22 +1,23 @@
 import React from "react";
 import "./Projects.css";
-import Cars from "./cars.JPG";
+import Photo from "./cars.JPG";
+import Photo2 from "./antras.JPG";
 
 const Project = () => {
   const projects = [
     {
       id: 1,
-      title: "Project 1",
-      description: "",
-      imageUrl: { Cars },
+      title: "HTML & CSS Website",
+      description: "Simple HTML & CSS Website with bootstrap framework",
+      imageUrl: Photo,
       liveUrl: "#",
       githubUrl: "#",
     },
     {
       id: 2,
-      title: "Project 2",
-      description: "",
-      imageUrl: "#",
+      title: "API COUNTRIES",
+      description: "Simple API project with filters by continents",
+      imageUrl: Photo2,
       liveUrl: "#",
       githubUrl: "#",
     },
@@ -29,7 +30,7 @@ const Project = () => {
         {projects.map((project) => (
           <div key={project.id} className="project-card">
             <img
-              src={project.imageURL}
+              src={project.imageUrl}
               alt={project.title}
               className="project-image"
             />

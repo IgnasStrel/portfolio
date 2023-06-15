@@ -17,16 +17,7 @@ const About = () => {
           vestibulum a. Nam sed purus at urna facilisis consectetur et vitae
           sem. Morbi dapibus interdum libero, ac facilisis lacus.
         </p>
-        <p className="about-description">
-          Sed elementum feugiat sollicitudin. Morbi nec mi sed ligula volutpat
-          ullamcorper. Donec non odio ac lorem semper dapibus. Sed eget odio
-          condimentum, malesuada risus id, gravida odio. Suspendisse convallis
-          elit et sem mattis, a pharetra ante accumsan. Integer id ullamcorper
-          nisl. Praesent efficitur nulla id odio fringilla semper. Sed at nisl
-          sem. Pellentesque pulvinar turpis id fringilla convallis. Curabitur
-          sodales metus non ligula vehicula, ut fringilla nisi malesuada. In in
-          ultrices sem. Vestibulum vitae finibus tortor.
-        </p>
+        <p className="about-description">My CV</p>
       </div>
     </div>
   );
